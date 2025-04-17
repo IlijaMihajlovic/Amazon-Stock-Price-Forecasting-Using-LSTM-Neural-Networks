@@ -21,6 +21,7 @@ ___
 - Optimizer: Adam with learning rate 0.001
 - Batch Size: 16
 - Lookback Window: 7 days (using past 7 days to predict next day)
+- The `AMZN.csv` dataset is included in the repository
 ___
 
 ## Requirements
