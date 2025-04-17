@@ -19,6 +19,14 @@ ___
 - Time Series Forecasting: Demonstrates how to use the trained model for stock price prediction.
 ___
 
+## Technical Details
+- Layers: 1 LSTM layer with 4 hidden units followed by a fully connected layer
+- Loss Function: Mean Squared Error (MSE)
+- Optimizer: Adam with learning rate 0.001
+- Batch Size: 16
+- Lookback Window: 7 days (using past 7 days to predict next day)
+___
+
 ## Requirements
 - Python 3.7+
 - PyTorch
