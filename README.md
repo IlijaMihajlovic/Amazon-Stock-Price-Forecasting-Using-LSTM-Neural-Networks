@@ -7,12 +7,16 @@
 
 
 
+___
+
 ## Key Features
-- Data preprocessing and normalization
-- LSTM model architecture
-- Training and validation pipeline
-- Stock price forecasting
-- Visualization of predictions vs actual prices
+- Data Preparation: The notebook loads and preprocesses Amazon stock price data, focusing on closing prices over time.
+- Feature Engineering: Creates time-lagged features to help the model learn temporal patterns.
+- Data Normalization: Uses MinMaxScaler to scale data between -1 and 1 for better model performance.
+- LSTM Model: Implements a custom LSTM architecture with PyTorch for sequence prediction.
+- Training Pipeline: Includes data loading, model training, and validation processes.
+- Time Series Forecasting: Demonstrates how to use the trained model for stock price prediction.
+___
 
 ## Requirements
 - Python 3.7+
@@ -21,10 +25,11 @@
 - numpy
 - matplotlib
 - scikit-learn
+___
 
 ## Getting the files
 -  Use GitHub to clone the repository locally, or download the .zip file of the repository and extract the files.
-
+___
 
 ## LSTM Model Definition (models.py)
 
@@ -66,7 +71,67 @@ class LSTMModel(nn.Module):
         out = self.fc(out[:, -1, :])
         return out
    ```
+___
 
+## Data Preprocessing 
+
+```python
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+
+def prepare_dataframe_for_lstm(df, n_steps):
+    """
+    Prepare time series data for LSTM training by creating lag features
+    
+    Args:
+        df: Pandas DataFrame with 'Date' and 'Close' columns
+        n_steps: Number of lookback steps (time window size)
+    
+    Returns:
+        shifted_df: DataFrame with lag features
+        scaler: Fitted MinMaxScaler object
+    """
+    df = df.copy()
+    df.set_index('Date', inplace=True)
+
+    # Create lag features
+    for i in range(1, n_steps + 1):
+        df[f'Close(t-{i})'] = df['Close'].shift(i)
+    
+    df.dropna(inplace=True)
+    
+    # Normalize data between -1 and 1
+    scaler = MinMaxScaler(feature_range=(-1, 1))
+    scaled_data = scaler.fit_transform(df)
+    
+    return pd.DataFrame(scaled_data, columns=df.columns), scaler
+
+def create_sequences(data, lookback):
+    """
+    Create input sequences and targets for LSTM training
+    
+    Args:
+        data: Normalized DataFrame
+        lookback: Number of timesteps to look back
+    
+    Returns:
+        X: Input sequences (n_samples, lookback, n_features)
+        y: Target values
+    """
+    X = data[:, 1:]  # All columns except target
+    y = data[:, 0]   # Target column (Close price)
+    
+    # Flip to have most recent timesteps last
+    X = np.flip(X, axis=1)
+    
+    # Reshape for LSTM [samples, timesteps, features]
+    X = X.reshape((-1, lookback, 1))
+    y = y.reshape((-1, 1))
+    
+    return X, y
+   ```
+___
 
 ## License
 ```
