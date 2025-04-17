@@ -30,7 +30,7 @@ ___
 ___
 
 ## Requirements
-- Python 3.7+
+- Python
 - PyTorch
 - pandas
 - numpy
