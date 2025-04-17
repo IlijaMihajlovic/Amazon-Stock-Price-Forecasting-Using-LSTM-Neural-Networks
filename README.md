@@ -26,6 +26,48 @@
 -  Use GitHub to clone the repository locally, or download the .zip file of the repository and extract the files.
 
 
+## LSTM Model Definition (models.py)
+
+```python
+
+import torch
+import torch.nn as nn
+
+class LSTMModel(nn.Module):
+    """
+    LSTM model for stock price forecasting
+    Args:
+        input_size: Number of input features (1 for univariate time series)
+        hidden_size: Number of LSTM hidden units
+        num_stacked_layers: Number of stacked LSTM layers
+    """
+    def __init__(self, input_size, hidden_size, num_stacked_layers):
+        super().__init__()
+        self.hidden_size = hidden_size
+        self.num_stacked_layers = num_stacked_layers
+
+        # LSTM layer
+        self.lstm = nn.LSTM(input_size, hidden_size, num_stacked_layers, 
+                           batch_first=True)
+        
+        # Fully connected output layer
+        self.fc = nn.Linear(hidden_size, 1)
+
+    def forward(self, x):
+        batch_size = x.size(0)
+        # Initialize hidden state and cell state
+        h0 = torch.zeros(self.num_stacked_layers, batch_size, self.hidden_size).to(x.device)
+        c0 = torch.zeros(self.num_stacked_layers, batch_size, self.hidden_size).to(x.device)
+        
+        # Forward pass through LSTM
+        out, _ = self.lstm(x, (h0, c0))
+        
+        # Only take the output from the final timestep
+        out = self.fc(out[:, -1, :])
+        return out
+   ```
+
+
 ## License
 ```
 MIT License
