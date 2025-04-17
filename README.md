@@ -5,7 +5,8 @@
 ![python-version](https://img.shields.io/badge/python-3.7%2B-3776AB.svg)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)
 
-
+This Jupyter notebook demonstrates how to build a Long Short-Term Memory (LSTM) neural network to forecast Amazon stock prices. 
+The project uses historical stock price data from AMZN.csv to train an LSTM model for time series forecasting.
 
 ___
 
