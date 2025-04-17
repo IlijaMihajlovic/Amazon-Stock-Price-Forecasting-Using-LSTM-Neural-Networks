@@ -152,13 +152,22 @@ def create_sequences(data, lookback):
    ```
 ___
 
-## Long-Term Trend (output1.png)
+## Long-Term Trend
 - Scale: The y-axis ranges from -1.0 to -0.2, representing normalized closing prices.
 - Trend: The plot spans ~5000 days (historical data), showing how well the model captures long-term trends.
 - Alignment: The predicted values (orange/red line) closely follow the actual closing prices (blue line), indicating the model learns temporal patterns effectively.
 - Volatility: Some deviations occur during market fluctuations, suggesting the model may struggle with abrupt changes.
 
-  ![alt text](https://github.com/IlijaMihajlovic/Core-ML-And-Vision-Object-Classifier-Lightweight-Version/blob/master/Images/spinner.png)
+  ![alt text](https://github.com/IlijaMihajlovic/Amazon-Stock-Price-Forecasting-Using-LSTM-Neural-Networks/blob/main/Images/Long-Term%20Trend.png)
+
+___
+
+  ## Short-Term Focus
+- Scale: The y-axis ranges from 0.0 to 0.8 (normalized), zooming into a 300-day window.
+- Precision: Predictions (orange/red) align closely with actual prices (blue), especially in stable periods.
+- Lag Effect: Minor delays in predictions during sharp price changes hint at the LSTM’s tendency to "smooth" volatile movements
+
+  ![alt text](https://github.com/IlijaMihajlovic/Amazon-Stock-Price-Forecasting-Using-LSTM-Neural-Networks/blob/main/Images/Short-Term%20Focus%20.png)
 
 
 ## License
