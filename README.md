@@ -12,21 +12,12 @@ The project uses historical stock price data from AMZN.csv to train an LSTM mode
 ___
 
 ## Key Features
-- Data Preparation: The notebook loads and preprocesses Amazon stock price data, focusing on closing prices over time.
-- Feature Engineering: Creates time-lagged features to help the model learn temporal patterns.
-- Data Normalization: Uses MinMaxScaler to scale data between -1 and 1 for better model performance.
-- LSTM Model: Implements a custom LSTM architecture with PyTorch for sequence prediction.
-- Training Pipeline: Includes data loading, model training, and validation processes.
-- Time Series Forecasting: Demonstrates how to use the trained model for stock price prediction.
-___
-
-## Technical Details
-- Layers: 1 LSTM layer with 4 hidden units followed by a fully connected layer
-- Loss Function: Mean Squared Error (MSE)
-- Optimizer: Adam with learning rate 0.001
-- Batch Size: 16
-- Lookback Window: 7 days (using past 7 days to predict next day)
-- The `AMZN.csv` dataset is included in the repository
+- **Data Preparation**: The notebook loads and preprocesses Amazon stock price data, focusing on closing prices over time.
+- **Feature Engineering**: Creates time-lagged features to help the model learn temporal patterns.
+- **Data Normalization**: Uses MinMaxScaler to scale data between -1 and 1 for better model performance.
+- **LSTM Model**: Implements a custom LSTM architecture with PyTorch for sequence prediction.
+- **Training Pipeline**: Includes data loading, model training, and validation processes.
+- **Time Series Forecasting**: Demonstrates how to use the trained model for stock price prediction.
 ___
 
 ## Requirements
@@ -39,22 +30,44 @@ ___
 - Jupyter Notebook
 ___
 
+## Technical Details
+- Layers: 1 LSTM layer with 4 hidden units followed by a fully connected layer
+- Loss Function: Mean Squared Error (MSE)
+- Optimizer: Adam with learning rate 0.001
+- Batch Size: 16
+- Lookback Window: 7 days (using past 7 days to predict next day)
+- The `AMZN.csv` dataset is included in the repository
+___
+
 ## Installing Python dependencies
 
 I recommend using **Python 3.7 or higher** for this project. If you do not have Python installed in your local environment, please visit [python.org](https://www.python.org/downloads/) for the latest download instruction. 
 
-With Python installed, please go to the Command Line interface of your operating system and use the "pip install" prompts below to install PyTorch, Pandas, NumPy, Matplotlib, scikit-learn respectively. 
+Verify installation with: `python --version`
 
-- `pip install torch`
-- `pip install pandas`
-- `pip install numpy`
-- `pip install matplotlib`
-- `pip install scikit-learn`
+With Python installed, please go to the Command Line interface of your operating system and use the `pip install` prompts below to install PyTorch, Pandas, NumPy, Matplotlib, Seaborn and scikit-learn respectively. 
 
+### Package Installation
+Run these commands in your terminal/command prompt:
+
+```bash
+pip install torch pandas numpy matplotlib seaborn scikit-learn
+```
 ___
 
-## Getting the files
--  Use GitHub to clone the repository locally, or download the .zip file of the repository and extract the files.
+## Jupyter Notebook (Optional)
+
+The project is provided as a Jupyter Notebook (`.ipynb` file). You have two options:
+
+### 1. Install Jupyter (recommended for full interactivity):
+
+```bash
+pip install jupyter
+```
+
+### 2. View without installation:
+- Use Google Colab
+___
 ___
 
 ## LSTM Model Definition (models.py)
