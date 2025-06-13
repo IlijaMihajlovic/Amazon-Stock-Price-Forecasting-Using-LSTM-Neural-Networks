@@ -36,6 +36,7 @@ ___
 - numpy
 - matplotlib
 - scikit-learn
+- Jupyter Notebook
 ___
 
 ## Installing Python dependencies
