@@ -3,9 +3,9 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.6%2B-red)
 ![pandas](https://img.shields.io/badge/pandas-2.2%2B-orange)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.6%2B-yellowgreen)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
 ![license](https://img.shields.io/badge/license-MIT-lightgrey.svg)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange)
 
 This Jupyter notebook demonstrates how to build a Long Short-Term Memory (LSTM) neural network to forecast Amazon stock prices. 
 The project uses historical stock price data from AMZN.csv to train an LSTM model for time series forecasting.
