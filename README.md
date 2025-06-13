@@ -1,4 +1,4 @@
-# Amazon Stock Price Forecasting Using LSTM Neural Networks
+# Stock Price Forecasting Using LSTM Neural Networks
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.6%2B-red)
 ![pandas](https://img.shields.io/badge/pandas-2.2%2B-orange)
